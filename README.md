@@ -14,6 +14,7 @@ Some optional arguments can be passed to the script:
 - `--mask`: path to mask file
 - `--values`: values to extract
 - `--smooth`: Smoothing factor (defaults to 0.8)
+- `--format`: GeoJSON format (defaults to "GeoJSON", can be "shapefile" or "gpkg")
 
 ## Example
 ```bash
