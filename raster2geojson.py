@@ -183,7 +183,7 @@ def shape_from_raster(
         # remove nan
         values = values[~np.isnan(values)]
 
-    for value in values:
+    for value in sorted(values):
         values = ((image >= value) & mask).astype('uint8')
 
         if holes_mask is not None:
@@ -199,8 +199,8 @@ def shape_from_raster(
                 'geometry': smooth_polygon(s, smooth) if smooth > 0 else s
             })
         geoms += list(results)
+    
     # Convert to GeoDataFrame
-
     gdf = gpd.GeoDataFrame.from_features(geoms, crs=src.crs)
 
     if mask_file:
